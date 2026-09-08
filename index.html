@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>window.__resources=Object.assign({},window.__resources,{"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"vendor/react-dom.production.min.js"});</script>
-<script src="vendor/react.production.min.js"></script>
-<script src="vendor/react-dom.production.min.js"></script>
+<script>window.__resources=Object.assign({},window.__resources,{"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"react-dom.production.min.js"});</script>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -33,7 +33,7 @@
 <div style="background:transparent;color:#3A1714;font-family:Archivo,sans-serif;min-height:100vh">
 
   <div data-filmwrap="1" style="position:fixed;inset:0;z-index:0;overflow:hidden;background:#241416;pointer-events:none">
-    <img src="nw/ls-court.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <img src="ls-court.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
     <canvas data-filmcanvas="1" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
   </div>
 
@@ -67,7 +67,7 @@
   <header style="position:relative;z-index:1;padding:56px 32px 40px;padding-left:clamp(58px,7vw,76px);background:rgba(237,230,219,.70);backdrop-filter:blur(18px) saturate(1.08);-webkit-backdrop-filter:blur(18px) saturate(1.08)">
     <div style="max-width:1400px;margin:0 auto">
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(58,23,20,.16);padding-bottom:18px">
-      <div style="display:flex;align-items:center;gap:12px"><img src="nw/logo.png" alt="PressLogic" style="height:20px;width:auto;display:block" /></div>
+      <div style="display:flex;align-items:center;gap:12px"><img src="logo.png" alt="PressLogic" style="height:20px;width:auto;display:block" /></div>
       <div style="font:800 10.5px/1 Archivo,sans-serif;letter-spacing:.2em;color:rgba(58,23,20,.55)">SEPTEMBER · HONG KONG · UI &amp; EXPERIENCE MOCKUPS</div>
     </div>
     <h1 style="margin:36px 0 0;font:900 clamp(44px,7vw,104px)/0.9 Archivo,sans-serif;letter-spacing:-.035em;max-width:16ch">Family Sports, <em style="font:italic 600 1em/0.9 'Bodoni Moda',serif;letter-spacing:-.01em">as the family sees it.</em></h1>
@@ -120,11 +120,11 @@
               <div style="flex:1;overflow:auto;display:flex;flex-direction:column">
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #efefef;font:800 15px/1 Archivo,sans-serif">Instagram<span style="font:500 11px/1 Archivo,sans-serif;color:#8e8e8e">For you</span></div>
                 <div style="display:flex;align-items:center;gap:9px;padding:10px 12px">
-                  <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(#F9DCE7,#ED2E7E);padding:2px"><img src="nw/logo.png" alt="" style="width:100%;height:100%;object-fit:contain;background:#fff;border-radius:50%;display:block" /></div>
+                  <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(#F9DCE7,#ED2E7E);padding:2px"><img src="logo.png" alt="" style="width:100%;height:100%;object-fit:contain;background:#fff;border-radius:50%;display:block" /></div>
                   <div style="flex:1"><div style="font:700 12.5px/1.2 Archivo,sans-serif">presslogic.hk</div><div style="font:500 10.5px/1.2 Archivo,sans-serif;color:#8e8e8e">Sponsored · Hong Kong</div></div>
                   <div style="font:700 16px/1 Archivo,sans-serif;color:#8e8e8e">···</div>
                 </div>
-                <div style="position:relative;background:#000"><img src="nw/ls-highfive.jpg" alt="Family Sports launch" style="width:100%;height:300px;object-fit:cover;display:block" />
+                <div style="position:relative;background:#000"><img src="ls-highfive.jpg" alt="Family Sports launch" style="width:100%;height:300px;object-fit:cover;display:block" />
                   <div style="position:absolute;left:12px;top:12px;background:rgba(0,0,0,.4);color:#fff;border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · LAUNCH_15S</div>
                   <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font:900 22px/1 Archivo,sans-serif;letter-spacing:-.02em">A new term.<br />More time together.</div>
                 </div>
@@ -136,8 +136,8 @@
 
               <sc-if value="{{ st1_1 }}">
               <div style="flex:1;overflow:auto;display:flex;flex-direction:column;background:#EDE6DB">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff"><img src="nw/logo.png" alt="PressLogic" style="height:14px;width:auto;display:block" /><div style="display:grid;gap:3px"><span style="width:18px;height:1.6px;background:#3A1714;display:block"></span><span style="width:18px;height:1.6px;background:#3A1714;display:block"></span><span style="width:18px;height:1.6px;background:#3A1714;display:block"></span></div></div>
-                <img src="nw/ls-mall.jpg" alt="Family playing at the mall court" style="width:100%;height:210px;object-fit:cover;display:block" />
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff"><img src="logo.png" alt="PressLogic" style="height:14px;width:auto;display:block" /><div style="display:grid;gap:3px"><span style="width:18px;height:1.6px;background:#3A1714;display:block"></span><span style="width:18px;height:1.6px;background:#3A1714;display:block"></span><span style="width:18px;height:1.6px;background:#3A1714;display:block"></span></div></div>
+                <img src="ls-mall.jpg" alt="Family playing at the mall court" style="width:100%;height:210px;object-fit:cover;display:block" />
                 <div style="padding:20px 18px 24px">
                   <div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#ED2E7E">SEPTEMBER FAMILY SPORTS</div>
                   <h3 style="margin:10px 0 0;font:800 27px/0.98 Archivo,sans-serif;letter-spacing:-.025em">From your feed to <em style="font:italic 600 1em/0.98 'Bodoni Moda',serif">family play.</em></h3>
@@ -176,7 +176,7 @@
         <div data-card="1" style="flex:0 0 auto;width:210px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">IG STORY AD · 9:16</div>
           <div style="border-radius:16px;overflow:hidden;position:relative;background:#000;box-shadow:0 14px 30px rgba(58,23,20,.16)">
-            <img src="nw/ph-bottle.jpg" alt="Story ad" style="width:100%;height:340px;object-fit:cover;display:block;opacity:.92" />
+            <img src="ph-bottle.jpg" alt="Story ad" style="width:100%;height:340px;object-fit:cover;display:block;opacity:.92" />
             <div style="position:absolute;left:10px;right:10px;top:10px;height:2px;background:rgba(255,255,255,.35);border-radius:2px"><span style="display:block;width:40%;height:100%;background:#fff;border-radius:2px"></span></div>
             <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff">
               <div style="font:900 17px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Your turn, mum.</div>
@@ -210,9 +210,9 @@
             <div style="border-radius:35px;overflow:hidden;background:#000;height:600px;position:relative;display:flex;flex-direction:column">
               <div style="position:absolute;left:0;right:0;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:12px 18px 4px;font:700 11px/1 Archivo,sans-serif;color:#fff"><span>15:14</span><span style="display:flex;align-items:center;gap:5px"><span style="font-size:9px">5G</span><span style="width:20px;height:10px;border:1.4px solid #fff;border-radius:3px;display:inline-block;position:relative"><span style="position:absolute;top:1.5px;bottom:1.5px;left:1.5px;right:6px;background:#fff;border-radius:1px"></span></span></span></div>
 
-              <sc-if value="{{ st2_0 }}" hint-placeholder-val="{{ true }}"><img src="nw/ph-celebrate.jpg" alt="School's out. Play's on." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-              <sc-if value="{{ st2_1 }}"><img src="nw/ph-family.jpg" alt="Your turn, mum." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-              <sc-if value="{{ reel3 }}"><img src="nw/ph-bottle.jpg" alt="Meet the play kit." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+              <sc-if value="{{ st2_0 }}" hint-placeholder-val="{{ true }}"><img src="ph-celebrate.jpg" alt="School's out. Play's on." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+              <sc-if value="{{ st2_1 }}"><img src="ph-family.jpg" alt="Your turn, mum." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+              <sc-if value="{{ reel3 }}"><img src="ph-bottle.jpg" alt="Meet the play kit." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
 
               <div style="position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),transparent 30%,transparent 55%,rgba(0,0,0,.65))"></div>
               <div style="position:absolute;left:14px;top:44px;z-index:3;background:rgba(0,0,0,.42);color:#fff;border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · {{ reelSlot }}</div>
@@ -226,7 +226,7 @@
 
               <div style="position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 14px 18px;color:#fff">
                 <div style="padding-right:58px">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><img src="nw/logo.png" alt="" style="width:26px;height:26px;border-radius:50%;background:#fff;object-fit:contain;display:block" /><span style="font:800 12.5px/1 Archivo,sans-serif">presslogic.hk</span><span style="border:1px solid #fff;border-radius:5px;padding:3px 7px;font:700 10px/1 Archivo,sans-serif">Follow</span></div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><img src="logo.png" alt="" style="width:26px;height:26px;border-radius:50%;background:#fff;object-fit:contain;display:block" /><span style="font:800 12.5px/1 Archivo,sans-serif">presslogic.hk</span><span style="border:1px solid #fff;border-radius:5px;padding:3px 7px;font:700 10px/1 Archivo,sans-serif">Follow</span></div>
                 <div style="font:900 20px/1.05 Archivo,sans-serif;letter-spacing:-.02em">{{ reelTitle }}</div>
                 <div style="margin-top:6px;font:500 11.5px/1.4 Archivo,sans-serif;opacity:.9">{{ reelCaption }} #SeptemberFamilySports</div>
                 </div>
@@ -270,8 +270,8 @@
             <div style="padding:14px;border-bottom:1px solid rgba(58,23,20,.1)">
               <div style="font:800 12px/1.3 Archivo,sans-serif">Parent creators run the same challenge</div>
               <div style="margin-top:10px;display:flex;gap:8px">
-                <img src="nw/ph-school.jpg" alt="" style="width:56px;height:74px;object-fit:cover;border-radius:8px;display:block" />
-                <img src="nw/ph-highfive.jpg" alt="" style="width:56px;height:74px;object-fit:cover;border-radius:8px;display:block" />
+                <img src="ph-school.jpg" alt="" style="width:56px;height:74px;object-fit:cover;border-radius:8px;display:block" />
+                <img src="ph-highfive.jpg" alt="" style="width:56px;height:74px;object-fit:cover;border-radius:8px;display:block" />
                 <div style="flex:1;border:1.5px dashed rgba(58,23,20,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font:700 10px/1.3 Archivo,sans-serif;color:rgba(58,23,20,.5);padding:6px">Remix<br />your turn</div>
               </div>
             </div>
@@ -315,13 +315,13 @@
         <div data-card="1" style="flex:0 0 auto;width:230px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">PRINTED TAKE-HOME · A5</div>
           <div style="border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 14px 30px rgba(58,23,20,.14);transform:rotate(-1.5deg)">
-            <img src="nw/ls-school.jpg" alt="Take-home invitation card" style="width:100%;height:120px;object-fit:cover;display:block" />
+            <img src="ls-school.jpg" alt="Take-home invitation card" style="width:100%;height:120px;object-fit:cover;display:block" />
             <div style="padding:14px;display:flex;gap:12px;align-items:center">
-              <img src="assets/qr-invite.svg" alt="QR code" style="width:64px;height:64px;display:block" />
+              <img src="qr-invite.svg" alt="QR code" style="width:64px;height:64px;display:block" />
               <div><div style="font:800 11px/1.25 Archivo,sans-serif">Scan to book<br />the weekend</div><div style="margin-top:5px;font:600 10px/1.3 Archivo,sans-serif;color:rgba(58,23,20,.6)">掃碼報名 · P2 Rose</div></div>
             </div>
           </div>
-          <img src="nw/ph-school.jpg" alt="School taster session" style="width:100%;height:190px;object-fit:cover;border-radius:14px;display:block;margin-top:16px" />
+          <img src="ph-school.jpg" alt="School taster session" style="width:100%;height:190px;object-fit:cover;border-radius:14px;display:block;margin-top:16px" />
           <div style="background:rgba(24,11,13,.93);border-radius:11px;padding:10px 12px;font:600 11.5px/1.45 Archivo,sans-serif;color:rgba(237,230,219,.92);margin-top:11px">Each card's QR carries the class code, so the booking form opens already knowing who played.</div>
         </div>
 
@@ -335,11 +335,11 @@
                 <div style="padding:16px 18px 4px"><div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#ED2E7E">SEPTEMBER FAMILY SPORTS</div><h3 style="margin:9px 0 0;font:800 23px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Kai's class played tennis today.</h3><p style="margin:8px 0 0;font:500 12.5px/1.5 Archivo,sans-serif;color:rgba(58,23,20,.72)">Choose what your family does on the weekend. 揀一項親子活動。</p></div>
                 <div style="padding:14px 18px;display:grid;gap:10px">
                   <button type="button" onClick="{{ go3_1 }}" style="text-align:left;border-radius:14px;overflow:hidden;border:1px solid rgba(58,23,20,.14);background:#fff;display:block;width:100%" style-hover="border-color:#ED2E7E">
-                    <img src="nw/ls-mall.jpg" alt="" style="width:100%;height:96px;object-fit:cover;display:block" />
+                    <img src="ls-mall.jpg" alt="" style="width:100%;height:96px;object-fit:cover;display:block" />
                     <div style="padding:11px 12px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:800 13px/1.2 Archivo,sans-serif">Mall Sports</div><div style="font:500 11px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.65);margin-top:3px">Tennis tasters for the whole family · 45 min</div></div><span style="color:#ED2E7E;font:800 14px/1 Archivo,sans-serif">→</span></div>
                   </button>
                   <button type="button" onClick="{{ go3_1 }}" style="text-align:left;border-radius:14px;overflow:hidden;border:1px solid rgba(58,23,20,.14);background:#FDF3F7;display:block;width:100%" style-hover="border-color:#ED2E7E">
-                    <img src="nw/ls-workshop.jpg" alt="" style="width:100%;height:96px;object-fit:cover;display:block" />
+                    <img src="ls-workshop.jpg" alt="" style="width:100%;height:96px;object-fit:cover;display:block" />
                     <div style="padding:11px 12px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:800 13px/1.2 Archivo,sans-serif">Family Workshop</div><div style="font:500 11px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.65);margin-top:3px">Personalise a bag tag together · 30 min</div></div><span style="color:#ED2E7E;font:800 14px/1 Archivo,sans-serif">→</span></div>
                   </button>
                   <div style="font:600 11px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.55)">Both run at the mall on the same afternoon — pick both and we'll line up the times.</div>
@@ -396,7 +396,7 @@
                 <h3 style="margin:9px 0 14px;font:800 22px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Family Play Pass</h3>
                 <div style="border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 12px 26px rgba(58,23,20,.14)">
                   <div style="background:#ED2E7E;color:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center"><span style="font:800 11px/1 Archivo,sans-serif;letter-spacing:.14em">FAMILY PLAY PASS</span><span style="font:700 10px/1 Archivo,sans-serif">#FS-2841</span></div>
-                  <div style="padding:14px;display:flex;gap:12px;align-items:center"><img src="assets/qr-pass.svg" alt="Pass QR" style="width:78px;height:78px;display:block" /><div style="display:grid;gap:5px;font:600 11px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.7)"><div style="font:800 13px/1.2 Archivo,sans-serif;color:#3A1714">Wong family · {{ partyLabel }}</div><div>{{ dayLabel }} · {{ slotLabel }}</div><div>L2 Atrium · Court 2</div><div>Workshop 16:00 · Station 3</div></div></div>
+                  <div style="padding:14px;display:flex;gap:12px;align-items:center"><img src="qr-pass.svg" alt="Pass QR" style="width:78px;height:78px;display:block" /><div style="display:grid;gap:5px;font:600 11px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.7)"><div style="font:800 13px/1.2 Archivo,sans-serif;color:#3A1714">Wong family · {{ partyLabel }}</div><div>{{ dayLabel }} · {{ slotLabel }}</div><div>L2 Atrium · Court 2</div><div>Workshop 16:00 · Station 3</div></div></div>
                   <div style="border-top:1px dashed rgba(58,23,20,.2);padding:12px 14px;display:flex;gap:8px">
                     <span style="flex:1;text-align:center;font:700 9.5px/1.3 Archivo,sans-serif;color:rgba(58,23,20,.7)"><span style="display:block;width:26px;height:26px;border-radius:50%;border:1.5px dashed rgba(58,23,20,.3);margin:0 auto 5px"></span>PLAY</span>
                     <span style="flex:1;text-align:center;font:700 9.5px/1.3 Archivo,sans-serif;color:rgba(58,23,20,.7)"><span style="display:block;width:26px;height:26px;border-radius:50%;border:1.5px dashed rgba(58,23,20,.3);margin:0 auto 5px"></span>MAKE</span>
@@ -436,7 +436,7 @@
         </div>
         <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}"><div style="margin-top:26px;font:600 19px/1.25 Caveat,cursive;color:#ED2E7E;transform:rotate(-1.5deg)">one pass. a family day.</div></sc-if>
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span>CARRIES FORWARD → STAMP 1 + A WORKSHOP SLOT</div>
-        <img src="nw/ls-booth.jpg" alt="Mall activation booth" style="width:100%;height:150px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
+        <img src="ls-booth.jpg" alt="Mall activation booth" style="width:100%;height:150px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
       </div>
 
       <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
@@ -451,7 +451,7 @@
               <div style="display:flex;justify-content:space-between"><span>Partner Edition store</span><span>L1 · SHOP 118</span></div>
               <div style="display:flex;justify-content:space-between"><span>Photo wall</span><span>L2 ATRIUM</span></div>
             </div>
-            <div style="margin-top:auto;background:#fff;border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center"><img src="assets/qr-invite.svg" alt="QR" style="width:52px;height:52px;display:block" /><div style="font:800 10px/1.3 Archivo,sans-serif;color:#3A1714">SCAN TO<br />CHECK IN<br /><span style="font-weight:600;color:rgba(58,23,20,.6)">掃碼報到</span></div></div>
+            <div style="margin-top:auto;background:#fff;border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center"><img src="qr-invite.svg" alt="QR" style="width:52px;height:52px;display:block" /><div style="font:800 10px/1.3 Archivo,sans-serif;color:#3A1714">SCAN TO<br />CHECK IN<br /><span style="font-weight:600;color:rgba(58,23,20,.6)">掃碼報到</span></div></div>
           </div>
         </div>
 
@@ -462,9 +462,9 @@
 
               <sc-if value="{{ st4_0 }}" hint-placeholder-val="{{ true }}">
               <div style="flex:1;overflow:auto">
-                <div style="margin:14px 14px 0;border-radius:16px;background:#F7F1EA;padding:13px;display:flex;gap:11px;align-items:flex-start"><img src="nw/logo.png" alt="" style="width:30px;height:30px;border-radius:8px;object-fit:contain;background:#fff;display:block" /><div><div style="font:800 11.5px/1.3 Archivo,sans-serif">You're at the mall — check in for Court 2</div><div style="font:500 10.5px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:4px">now · September Family Sports</div></div></div>
+                <div style="margin:14px 14px 0;border-radius:16px;background:#F7F1EA;padding:13px;display:flex;gap:11px;align-items:flex-start"><img src="logo.png" alt="" style="width:30px;height:30px;border-radius:8px;object-fit:contain;background:#fff;display:block" /><div><div style="font:800 11.5px/1.3 Archivo,sans-serif">You're at the mall — check in for Court 2</div><div style="font:500 10.5px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:4px">now · September Family Sports</div></div></div>
                 <div style="padding:16px 16px 0"><div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#ED2E7E">15:20 SESSION · IN 11 MIN</div><h3 style="margin:9px 0 0;font:800 22px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Head to the L2 atrium.</h3></div>
-                <div style="margin:14px 16px 0;border-radius:14px;overflow:hidden;position:relative"><img src="nw/ls-booth.jpg" alt="Atrium" style="width:100%;height:150px;object-fit:cover;display:block" /><div style="position:absolute;left:10px;bottom:10px;background:#fff;border-radius:999px;padding:6px 11px;font:800 10px/1 Archivo,sans-serif">2 MIN WALK · PAST THE ESCALATOR</div></div>
+                <div style="margin:14px 16px 0;border-radius:14px;overflow:hidden;position:relative"><img src="ls-booth.jpg" alt="Atrium" style="width:100%;height:150px;object-fit:cover;display:block" /><div style="position:absolute;left:10px;bottom:10px;background:#fff;border-radius:999px;padding:6px 11px;font:800 10px/1 Archivo,sans-serif">2 MIN WALK · PAST THE ESCALATOR</div></div>
                 <div style="padding:16px">
                   <button type="button" onClick="{{ go4_1 }}" style="width:100%;padding:14px;border-radius:999px;background:#ED2E7E;color:#fff;font:800 12.5px/1 Archivo,sans-serif;letter-spacing:.06em" style-hover="background:#3A1714">SHOW MY PASS QR →</button>
                   <div style="margin-top:12px;font:600 11px/1.45 Archivo,sans-serif;color:rgba(58,23,20,.6)">Staff scan the same QR from the school invitation — no queue form, no paper.</div>
@@ -511,7 +511,7 @@
                   <div style="flex:1;border-radius:14px;background:#F9DCE7;padding:13px"><div style="font:900 24px/1 Archivo,sans-serif">1/3</div><div style="font:700 9.5px/1.2 Archivo,sans-serif;letter-spacing:.1em;color:rgba(58,23,20,.6);margin-top:5px">STAMPS</div></div>
                 </div>
                 <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid rgba(58,23,20,.14)">
-                  <img src="nw/ls-workshop.jpg" alt="Workshop" style="width:100%;height:120px;object-fit:cover;display:block" />
+                  <img src="ls-workshop.jpg" alt="Workshop" style="width:100%;height:120px;object-fit:cover;display:block" />
                   <div style="padding:13px"><div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.14em;color:#ED2E7E">NEXT · 16:00 · STATION 3</div><div style="margin-top:7px;font:800 15px/1.15 Archivo,sans-serif">Make something together</div><div style="margin-top:6px;font:500 11.5px/1.45 Archivo,sans-serif;color:rgba(58,23,20,.68)">Personalise a bag tag and pick bottle stickers. 25 min.</div><a href="#s6" style="display:block;margin-top:11px;text-align:center;padding:12px;border-radius:999px;background:#ED2E7E;color:#fff;font:800 11.5px/1 Archivo,sans-serif" style-hover="background:#3A1714">JOIN THE WORKSHOP QUEUE →</a></div>
                 </div>
                 <a href="#s5" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;border-radius:14px;background:#F7F1EA;padding:13px;font:800 12px/1.3 Archivo,sans-serif;color:#3A1714" style-hover="background:#F9DCE7">Shop the Partner Edition kit on L1<span style="color:#ED2E7E">→</span></a>
@@ -567,15 +567,15 @@
         </div>
         <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}"><div style="margin-top:26px;font:600 19px/1.25 Caveat,cursive;color:#ED2E7E;transform:rotate(-1.5deg)">one kit. both worlds.</div></sc-if>
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span>CARRIES FORWARD → A BOTTLE AND TAG TO PERSONALISE</div>
-        <img src="nw/ls-kit.jpg" alt="Partner Edition store" style="width:100%;height:200px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
+        <img src="ls-kit.jpg" alt="Partner Edition store" style="width:100%;height:200px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
       </div>
 
       <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:200px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">SHELF TAG · NFC + QR</div>
           <div style="border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 14px 30px rgba(58,23,20,.14)">
-            <img src="nw/ls-tag.jpg" alt="Product hang tags" style="width:100%;height:150px;object-fit:cover;display:block" />
-            <div style="padding:13px"><div style="font:800 12px/1.2 Archivo,sans-serif">PressLogic × Partner Edition</div><div style="margin-top:8px;display:flex;gap:10px;align-items:center"><img src="assets/qr-shelf.svg" alt="QR" style="width:48px;height:48px;display:block" /><div style="font:700 9.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.65)">TAP OR SCAN<br />THE TAG<br /><span style="font-weight:600">感應標籤</span></div></div></div>
+            <img src="ls-tag.jpg" alt="Product hang tags" style="width:100%;height:150px;object-fit:cover;display:block" />
+            <div style="padding:13px"><div style="font:800 12px/1.2 Archivo,sans-serif">PressLogic × Partner Edition</div><div style="margin-top:8px;display:flex;gap:10px;align-items:center"><img src="qr-shelf.svg" alt="QR" style="width:48px;height:48px;display:block" /><div style="font:700 9.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.65)">TAP OR SCAN<br />THE TAG<br /><span style="font-weight:600">感應標籤</span></div></div></div>
           </div>
           <div style="background:rgba(24,11,13,.93);border-radius:11px;padding:10px 12px;font:600 11.5px/1.45 Archivo,sans-serif;color:rgba(237,230,219,.92);margin-top:11px">Each tag is item-specific, so the page opens on the exact bottle in the child's hand.</div>
         </div>
@@ -588,9 +588,9 @@
               <sc-if value="{{ st5_0 }}" hint-placeholder-val="{{ true }}">
               <div style="flex:1;overflow:auto">
                 <div style="position:relative;height:230px;background:#1a0d0f;overflow:hidden">
-                  <sc-if value="{{ g0 }}" hint-placeholder-val="{{ true }}"><img src="nw/ls-kit.jpg" alt="Play kit, everything included" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ g1 }}"><img src="nw/ls-tag.jpg" alt="Bottle with the name tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ g2 }}"><img src="nw/ph-hero.jpg" alt="The kit in play" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ g0 }}" hint-placeholder-val="{{ true }}"><img src="ls-kit.jpg" alt="Play kit, everything included" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ g1 }}"><img src="ls-tag.jpg" alt="Bottle with the name tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ g2 }}"><img src="ph-hero.jpg" alt="The kit in play" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
                   <button type="button" onClick="{{ galPrev }}" aria-label="Previous image" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(24,11,13,.6);color:#fff;font:800 14px/1 Archivo,sans-serif" style-hover="background:#ED2E7E">‹</button>
                   <button type="button" onClick="{{ galNext }}" aria-label="Next image" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(24,11,13,.6);color:#fff;font:800 14px/1 Archivo,sans-serif" style-hover="background:#ED2E7E">›</button>
                   <div style="position:absolute;left:0;right:0;bottom:9px;display:flex;gap:5px;justify-content:center">
@@ -622,7 +622,7 @@
               <sc-if value="{{ st5_1 }}">
               <div style="flex:1;overflow:auto;padding:18px">
                 <h3 style="margin:0;font:800 21px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Your bag</h3>
-                <div style="margin-top:16px;display:flex;gap:12px;border-bottom:1px solid rgba(58,23,20,.12);padding-bottom:14px"><img src="nw/ls-kit.jpg" alt="" style="width:66px;height:66px;object-fit:cover;border-radius:10px;display:block" /><div style="flex:1"><div style="font:800 12.5px/1.25 Archivo,sans-serif">School × Sport Play Kit</div><div style="font:500 11px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.62);margin-top:4px">{{ colourLabel }} · qty 1</div><sc-if value="{{ engrave }}" hint-placeholder-val="{{ true }}"><div style="font:700 10.5px/1.4 Archivo,sans-serif;color:#ED2E7E;margin-top:4px">+ engraving “{{ name }}” · Station 3, 16:00</div></sc-if></div><div style="font:800 12.5px/1 Archivo,sans-serif">HK$598</div></div>
+                <div style="margin-top:16px;display:flex;gap:12px;border-bottom:1px solid rgba(58,23,20,.12);padding-bottom:14px"><img src="ls-kit.jpg" alt="" style="width:66px;height:66px;object-fit:cover;border-radius:10px;display:block" /><div style="flex:1"><div style="font:800 12.5px/1.25 Archivo,sans-serif">School × Sport Play Kit</div><div style="font:500 11px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.62);margin-top:4px">{{ colourLabel }} · qty 1</div><sc-if value="{{ engrave }}" hint-placeholder-val="{{ true }}"><div style="font:700 10.5px/1.4 Archivo,sans-serif;color:#ED2E7E;margin-top:4px">+ engraving “{{ name }}” · Station 3, 16:00</div></sc-if></div><div style="font:800 12.5px/1 Archivo,sans-serif">HK$598</div></div>
                 <div style="margin-top:14px;display:grid;gap:8px;font:600 12px/1 Archivo,sans-serif;color:rgba(58,23,20,.75)">
                   <div style="display:flex;justify-content:space-between"><span>Family Play Pass discount</span><span style="color:#ED2E7E;font-weight:800">−HK$120</span></div>
                   <div style="display:flex;justify-content:space-between"><span>Engraving</span><span style="font-weight:800;color:#3A1714">Included</span></div>
@@ -643,7 +643,7 @@
                 <div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#ED2E7E">PAID · COLLECT IN STORE</div>
                 <h3 style="margin:9px 0 0;font:800 22px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Show this at the counter.</h3>
                 <div style="margin-top:16px;border-radius:18px;background:#fff;padding:16px;text-align:center;box-shadow:0 12px 26px rgba(58,23,20,.12)">
-                  <img src="assets/qr-shelf.svg" alt="Collection code" style="width:120px;height:120px;display:block;margin:0 auto" />
+                  <img src="qr-shelf.svg" alt="Collection code" style="width:120px;height:120px;display:block;margin:0 auto" />
                   <div style="margin-top:12px;font:900 20px/1 Archivo,sans-serif;letter-spacing:.06em">FS-2841-K</div>
                   <div style="margin-top:6px;font:600 11px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.6)">L1 Shop 118 · until 21:00 today</div>
                 </div>
@@ -680,7 +680,7 @@
         </div>
         <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}"><div style="margin-top:26px;font:600 19px/1.25 Caveat,cursive;color:#ED2E7E;transform:rotate(-1.5deg)">made by your family</div></sc-if>
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span><span>CARRIES FORWARD → THE NAME {{ name }} ON EVERYTHING</span></div>
-        <img src="nw/ls-tag.jpg" alt="Personalised bag tags" style="width:100%;height:170px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
+        <img src="ls-tag.jpg" alt="Personalised bag tags" style="width:100%;height:170px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
       </div>
 
       <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
@@ -711,7 +711,7 @@
                   <sc-if value="{{ tagMaroon }}"><div style="width:112px;height:66px;border-radius:12px;background:#8E2C4A;display:flex;align-items:center;justify-content:center;font:900 22px/1 Archivo,sans-serif;letter-spacing:.14em;color:#fff;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)">{{ tagName }}</div></sc-if>
                   <div style="font:600 10.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.6);text-align:center">Woven tag · {{ stickerLabel }} on the bottle</div>
                 </div>
-                <div style="margin-top:12px;display:flex;gap:8px;align-items:center"><img src="nw/ls-tag.jpg" alt="" style="width:64px;height:52px;object-fit:cover;border-radius:8px;display:block" /><div style="font:600 10.5px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.6)">Made at the table in 6 minutes by a staff press.</div></div>
+                <div style="margin-top:12px;display:flex;gap:8px;align-items:center"><img src="ls-tag.jpg" alt="" style="width:64px;height:52px;object-fit:cover;border-radius:8px;display:block" /><div style="font:600 10.5px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.6)">Made at the table in 6 minutes by a staff press.</div></div>
                 <button type="button" onClick="{{ go6_1 }}" style="margin-top:12px;width:100%;padding:13px;border-radius:999px;background:#ED2E7E;color:#fff;font:800 11.5px/1 Archivo,sans-serif;letter-spacing:.06em" style-hover="background:#3A1714">SAVE TO OUR PASS →</button>
               </div>
             </div>
@@ -756,7 +756,7 @@
               <div style="flex:1;overflow:auto;background:#EDE6DB;padding:18px;display:flex;flex-direction:column">
                 <div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#ED2E7E">READY · 16:21</div>
                 <h3 style="margin:9px 0 0;font:800 23px/1.03 Archivo,sans-serif;letter-spacing:-.02em">Your tag is on the counter.</h3>
-                <img src="nw/ls-workshop.jpg" alt="Workshop table" style="width:100%;height:170px;object-fit:cover;border-radius:14px;display:block;margin-top:14px" />
+                <img src="ls-workshop.jpg" alt="Workshop table" style="width:100%;height:170px;object-fit:cover;border-radius:14px;display:block;margin-top:14px" />
                 <div style="margin-top:14px;border-radius:16px;background:#3A1714;color:#EDE6DB;padding:15px"><div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.14em;opacity:.7">PASS PROGRESS</div><div style="display:flex;gap:8px;margin-top:10px"><span style="flex:1;height:6px;border-radius:6px;background:#ED2E7E"></span><span style="flex:1;height:6px;border-radius:6px;background:#ED2E7E"></span><span style="flex:1;height:6px;border-radius:6px;background:rgba(237,230,219,.25)"></span></div><div style="margin-top:9px;font:700 11px/1.3 Archivo,sans-serif">Stamp 2 of 3 · MAKE earned</div></div>
                 <a href="#s7" style="margin-top:auto;display:block;text-align:center;padding:14px;border-radius:999px;background:#ED2E7E;color:#fff;font:800 12.5px/1 Archivo,sans-serif;letter-spacing:.06em" style-hover="background:#3A1714">LAST STOP · THE PHOTO WALL →</a>
               </div>
@@ -801,7 +801,7 @@
         <div data-card="1" style="flex:0 0 auto;width:230px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">PHOTO WALL SCREEN · ATRIUM</div>
           <div style="border-radius:14px;overflow:hidden;background:#3A1714;box-shadow:0 14px 30px rgba(58,23,20,.18)">
-            <div style="position:relative"><img src="nw/ls-photowall.jpg" alt="Photo wall capture" style="width:100%;height:230px;object-fit:cover;display:block;opacity:.95" /><div style="position:absolute;left:10px;top:10px;background:rgba(0,0,0,.45);color:#fff;border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · WALL_CAPTURE</div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 64px/1 Archivo,sans-serif;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.4)">3</div></div>
+            <div style="position:relative"><img src="ls-photowall.jpg" alt="Photo wall capture" style="width:100%;height:230px;object-fit:cover;display:block;opacity:.95" /><div style="position:absolute;left:10px;top:10px;background:rgba(0,0,0,.45);color:#fff;border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · WALL_CAPTURE</div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 64px/1 Archivo,sans-serif;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.4)">3</div></div>
             <div style="padding:14px;color:#EDE6DB"><div style="font:800 14px/1.15 Archivo,sans-serif">Look up and cheer</div><div style="margin-top:6px;font:600 10.5px/1.4 Archivo,sans-serif;opacity:.75">三 · 二 · 一 · 影相！ Scan the wall QR to keep the clip.</div></div>
           </div>
           <div style="background:rgba(24,11,13,.93);border-radius:11px;padding:10px 12px;font:600 11.5px/1.45 Archivo,sans-serif;color:rgba(237,230,219,.92);margin-top:11px">Six short clips are captured across the day, all tied to the pass ID rather than to a sign-up form.</div>
@@ -815,12 +815,12 @@
               <sc-if value="{{ st7_0 }}" hint-placeholder-val="{{ true }}">
               <div style="flex:1;overflow:auto">
                 <div style="position:relative"><div style="position:relative;height:250px;background:#1a0d0f;overflow:hidden">
-                  <sc-if value="{{ k0 }}" hint-placeholder-val="{{ true }}"><img src="nw/ls-photowall.jpg" alt="At the photo wall" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ k1 }}"><img src="nw/ls-highfive.jpg" alt="High five on court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ k2 }}"><img src="nw/ls-mall.jpg" alt="The rally" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ k3 }}"><img src="nw/ls-workshop.jpg" alt="Making the tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ k4 }}"><img src="nw/ls-impact.jpg" alt="Ball on the strings" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
-                  <sc-if value="{{ k5 }}"><img src="nw/ls-tag.jpg" alt="The finished tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ k0 }}" hint-placeholder-val="{{ true }}"><img src="ls-photowall.jpg" alt="At the photo wall" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ k1 }}"><img src="ls-highfive.jpg" alt="High five on court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ k2 }}"><img src="ls-mall.jpg" alt="The rally" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ k3 }}"><img src="ls-workshop.jpg" alt="Making the tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ k4 }}"><img src="ls-impact.jpg" alt="Ball on the strings" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
+                  <sc-if value="{{ k5 }}"><img src="ls-tag.jpg" alt="The finished tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></sc-if>
                   <button type="button" onClick="{{ keepPrev }}" aria-label="Previous clip" style="position:absolute;left:8px;top:44%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(24,11,13,.6);color:#fff;font:800 14px/1 Archivo,sans-serif" style-hover="background:#ED2E7E">‹</button>
                   <button type="button" onClick="{{ keepNext }}" aria-label="Next clip" style="position:absolute;right:8px;top:44%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(24,11,13,.6);color:#fff;font:800 14px/1 Archivo,sans-serif" style-hover="background:#ED2E7E">›</button>
                   <div style="position:absolute;left:12px;right:12px;top:10px;display:flex;gap:4px">
@@ -865,7 +865,7 @@
 
               <sc-if value="{{ st7_2 }}">
               <div style="flex:1;overflow:auto;background:#211311;color:#fff;display:flex;flex-direction:column">
-                <div style="position:relative;flex:1;min-height:330px"><img src="nw/ph-family.jpg" alt="Family reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9" /><div style="position:absolute;left:12px;top:12px;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · FAMILY_REEL_15S</div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.9);color:#ED2E7E;display:flex;align-items:center;justify-content:center;font:800 22px/1 Archivo,sans-serif;padding-left:4px">▶</span></div><div style="position:absolute;left:12px;right:12px;bottom:12px;height:3px;background:rgba(255,255,255,.3);border-radius:3px"><span style="display:block;width:34%;height:100%;background:#ED2E7E;border-radius:3px"></span></div></div>
+                <div style="position:relative;flex:1;min-height:330px"><img src="ph-family.jpg" alt="Family reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9" /><div style="position:absolute;left:12px;top:12px;background:rgba(0,0,0,.45);border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · FAMILY_REEL_15S</div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.9);color:#ED2E7E;display:flex;align-items:center;justify-content:center;font:800 22px/1 Archivo,sans-serif;padding-left:4px">▶</span></div><div style="position:absolute;left:12px;right:12px;bottom:12px;height:3px;background:rgba(255,255,255,.3);border-radius:3px"><span style="display:block;width:34%;height:100%;background:#ED2E7E;border-radius:3px"></span></div></div>
                 <div style="padding:16px">
                   <div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#F9DCE7">AUTO-EDITED FROM 6 CLIPS · 15 SEC</div>
                   <div style="margin-top:9px;font:800 20px/1.1 Archivo,sans-serif;letter-spacing:-.02em">Team {{ name }} · Family Sports Day</div>
@@ -921,7 +921,7 @@
 
               <sc-if value="{{ st8_0 }}" hint-placeholder-val="{{ true }}">
               <div style="position:absolute;inset:0">
-                <img src="nw/ph-family.jpg" alt="Story composer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+                <img src="ph-family.jpg" alt="Story composer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
                 <div style="position:absolute;inset:0;border:10px solid #ED2E7E;border-radius:0"></div>
                 <div style="position:absolute;left:24px;top:52px;background:rgba(0,0,0,.45);color:#fff;border-radius:6px;padding:4px 8px;font:800 9px/1 Archivo,sans-serif;letter-spacing:.12em">▶ VIDEO SLOT · FAMILY_REEL_15S</div>
                 <div style="position:absolute;left:22px;top:96px;background:#fff;color:#3A1714;border-radius:10px;padding:9px 12px;transform:rotate(-3deg);font:800 13px/1.15 Archivo,sans-serif">Team {{ name }} · 3 stamps</div>
@@ -937,9 +937,9 @@
 
               <sc-if value="{{ st8_1 }}">
               <div style="position:absolute;inset:0">
-                <img src="nw/ph-celebrate.jpg" alt="Posted story" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+                <img src="ph-celebrate.jpg" alt="Posted story" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
                 <div style="position:absolute;left:10px;right:10px;top:36px;height:2px;background:rgba(255,255,255,.35);border-radius:2px"><span style="display:block;width:62%;height:100%;background:#fff;border-radius:2px"></span></div>
-                <div style="position:absolute;left:14px;top:48px;display:flex;align-items:center;gap:8px;color:#fff"><img src="nw/logo.png" alt="" style="width:26px;height:26px;border-radius:50%;background:#fff;object-fit:contain;display:block" /><span style="font:800 12px/1 Archivo,sans-serif">ms.wong.family</span><span style="font:500 11px/1 Archivo,sans-serif;opacity:.7">2h</span></div>
+                <div style="position:absolute;left:14px;top:48px;display:flex;align-items:center;gap:8px;color:#fff"><img src="logo.png" alt="" style="width:26px;height:26px;border-radius:50%;background:#fff;object-fit:contain;display:block" /><span style="font:800 12px/1 Archivo,sans-serif">ms.wong.family</span><span style="font:500 11px/1 Archivo,sans-serif;opacity:.7">2h</span></div>
                 <div style="position:absolute;left:20px;bottom:170px;background:#3A1714;color:#fff;border-radius:12px;padding:11px 13px;font:800 11.5px/1.2 Archivo,sans-serif">BOOK A FAMILY SESSION<div style="font:600 10px/1.3 Archivo,sans-serif;opacity:.75;margin-top:4px">14 taps from this story</div></div>
                 <div style="position:absolute;left:16px;right:16px;bottom:96px;background:rgba(0,0,0,.55);color:#fff;border-radius:14px;padding:13px"><div style="font:800 11.5px/1.3 Archivo,sans-serif">Seen by 212 · 9 replies</div><div style="margin-top:6px;font:500 11px/1.4 Archivo,sans-serif;opacity:.85">“邊度報名？” — three friends asked for the link.</div></div>
                 <a href="#s1" style="position:absolute;left:16px;right:16px;bottom:22px;background:#fff;color:#3A1714;border-radius:999px;padding:14px;text-align:center;font:800 12px/1 Archivo,sans-serif" style-hover="background:#ED2E7E;color:#fff">THEIR JOURNEY STARTS AT STAGE 01 ↑</a>
@@ -951,8 +951,8 @@
                 <div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#ED2E7E">REWARDS WALLET</div>
                 <h3 style="margin:9px 0 0;font:800 21px/1.05 Archivo,sans-serif;letter-spacing:-.02em">Come back for Term 2.</h3>
                 <div style="margin-top:14px;display:grid;gap:10px">
-                  <div style="border-radius:14px;background:#fff;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 18px rgba(58,23,20,.08)"><img src="nw/ls-kit.jpg" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:10px;display:block" /><div><div style="font:800 12px/1.2 Archivo,sans-serif">−20% Partner Edition</div><div style="font:600 10.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:4px">Valid to 31 Oct · in store or online</div></div></div>
-                  <div style="border-radius:14px;background:#fff;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 18px rgba(58,23,20,.08)"><img src="nw/ph-bottle.jpg" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:10px;display:block" /><div><div style="font:800 12px/1.2 Archivo,sans-serif">Free bottle refill · every session</div><div style="font:600 10.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:4px">Show the pass at the court</div></div></div>
+                  <div style="border-radius:14px;background:#fff;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 18px rgba(58,23,20,.08)"><img src="ls-kit.jpg" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:10px;display:block" /><div><div style="font:800 12px/1.2 Archivo,sans-serif">−20% Partner Edition</div><div style="font:600 10.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:4px">Valid to 31 Oct · in store or online</div></div></div>
+                  <div style="border-radius:14px;background:#fff;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 18px rgba(58,23,20,.08)"><img src="ph-bottle.jpg" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:10px;display:block" /><div><div style="font:800 12px/1.2 Archivo,sans-serif">Free bottle refill · every session</div><div style="font:600 10.5px/1.35 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:4px">Show the pass at the court</div></div></div>
                   <div style="border-radius:14px;background:#3A1714;color:#EDE6DB;padding:14px"><div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.14em;opacity:.7">TERM 2 · EARLY ACCESS</div><div style="margin-top:7px;font:800 15px/1.15 Archivo,sans-serif">Sat 11 Oct · same court, new challenge</div><div style="margin-top:9px;display:flex;gap:8px"><span style="flex:1;text-align:center;background:#ED2E7E;color:#fff;border-radius:999px;padding:10px;font:800 10.5px/1 Archivo,sans-serif">BOOK NOW</span><span style="flex:1;text-align:center;border:1px solid rgba(237,230,219,.5);border-radius:999px;padding:10px;font:800 10.5px/1 Archivo,sans-serif">REMIND ME</span></div></div>
                   <div style="border-radius:14px;border:1.5px dashed rgba(58,23,20,.25);padding:14px"><div style="font:800 12px/1.2 Archivo,sans-serif">Invite a class friend</div><div style="font:600 10.5px/1.4 Archivo,sans-serif;color:rgba(58,23,20,.6);margin-top:5px">Both families get a workshop slot. presslogic.hk/inv/{{ name }}</div></div>
                 </div>
@@ -970,7 +970,7 @@
         <div data-card="1" style="flex:0 0 auto;width:270px">
           <div style="font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:rgba(237,230,219,.55);margin-bottom:8px">FOLLOW-UP · MONDAY 09:00</div>
           <div style="border-radius:16px;background:#EDE6DB;color:#3A1714;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.25)">
-            <div style="padding:14px;border-bottom:1px solid rgba(58,23,20,.12);display:flex;gap:10px;align-items:center"><img src="nw/logo.png" alt="" style="width:26px;height:26px;border-radius:50%;background:#fff;object-fit:contain;display:block" /><div><div style="font:800 11.5px/1.2 Archivo,sans-serif">PressLogic Family Sports</div><div style="font:600 10px/1.2 Archivo,sans-serif;color:rgba(58,23,20,.55)">WhatsApp · to Ms Wong</div></div></div>
+            <div style="padding:14px;border-bottom:1px solid rgba(58,23,20,.12);display:flex;gap:10px;align-items:center"><img src="logo.png" alt="" style="width:26px;height:26px;border-radius:50%;background:#fff;object-fit:contain;display:block" /><div><div style="font:800 11.5px/1.2 Archivo,sans-serif">PressLogic Family Sports</div><div style="font:600 10px/1.2 Archivo,sans-serif;color:rgba(58,23,20,.55)">WhatsApp · to Ms Wong</div></div></div>
             <div style="padding:14px;display:grid;gap:10px">
               <div style="background:#fff;border-radius:12px;padding:12px;font:500 11.5px/1.5 Archivo,sans-serif">Your family Reel is ready to download for another 30 days. Team {{ name }} played {{ rally }} rallies — 多謝你們！</div>
               <div style="background:#fff;border-radius:12px;padding:12px;font:500 11.5px/1.5 Archivo,sans-serif">Term 2 opens for pass holders on 9 Oct. Want the same 15:20 court?</div>
@@ -1001,8 +1001,8 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;childName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;KAI&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Personalisation&quot;},&quot;showAnnotations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Presentation&quot;}}">
-const FRAME_COUNT = 110;
-const FRAME_SRC = i => 'assets/seq/f' + String(i).padStart(3, '0') + '.jpg';
+const FRAME_COUNT = 55;
+const FRAME_SRC = i => 'seq/f' + String(i * 2).padStart(3, '0') + '.jpg';
 
 class Component extends DCLogic {
   state = {
