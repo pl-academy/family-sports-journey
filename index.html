@@ -87,7 +87,7 @@
 
   <div style="position:fixed;left:0;right:0;top:0;height:2px;z-index:40;background:rgba(18,10,12,.2);pointer-events:none"><span data-bar="1" style="display:block;height:100%;background:#ED2E7E;transform:scaleX(0);transform-origin:0 50%"></span></div>
 
-  <nav aria-label="Journey chapters" style="position:fixed;left:clamp(10px,1.4vw,20px);top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:5px;padding:9px 7px;border-radius:999px;background:rgba(18,10,12,.72)">
+  <nav aria-label="Journey chapters" data-chapnav="1" style="position:fixed;left:clamp(10px,1.4vw,20px);top:50%;transform:translateY(-50%);z-index:40;transition:opacity .32s ease;display:flex;flex-direction:column;gap:5px;padding:9px 7px;border-radius:999px;background:rgba(18,10,12,.72)">
     <a href="#s1" title="01 Discover" style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 9.5px/1 Archivo,sans-serif;color:rgba(237,230,219,.72)" style-hover="background:#ED2E7E;color:#fff">01</a>
     <a href="#s2" title="02 Build hype" style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 9.5px/1 Archivo,sans-serif;color:rgba(237,230,219,.72)" style-hover="background:#ED2E7E;color:#fff">02</a>
     <a href="#s3" title="03 Participate" style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 9.5px/1 Archivo,sans-serif;color:rgba(237,230,219,.72)" style-hover="background:#ED2E7E;color:#fff">03</a>
@@ -98,7 +98,7 @@
     <a href="#s8" title="08 Share and return" style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 9.5px/1 Archivo,sans-serif;color:rgba(237,230,219,.72)" style-hover="background:#ED2E7E;color:#fff">08</a>
   </nav>
 
-  <div data-hud="1" style="position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:40;display:flex;align-items:center;gap:11px;padding:10px 15px;border-radius:999px;background:rgba(18,10,12,.74);pointer-events:none">
+  <div data-hud="1" style="position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:40;transition:opacity .32s ease,transform .32s ease;display:flex;align-items:center;gap:11px;padding:10px 15px;border-radius:999px;background:rgba(18,10,12,.74);pointer-events:none">
     <span data-hudnum="1" style="font:900 15px/1 Archivo,sans-serif;letter-spacing:-.02em;color:#F6A8C8">01</span>
     <span style="width:1px;height:12px;background:rgba(255,255,255,.32);display:block"></span>
     <span data-hudlabel="1" style="font:800 9px/1 Archivo,sans-serif;letter-spacing:.22em;color:#fff">DISCOVER</span>
@@ -1032,7 +1032,8 @@
     </div>
   </section>
 
-    <div data-window="5" style="position:relative;z-index:1;height:clamp(300px,50vh,540px);overflow:hidden;background:transparent">
+    <div data-window="5" style="position:relative;z-index:1;height:clamp(300px,50vh,540px);overflow:hidden;background:#241416">
+    <img src="ls-kit.jpg" alt="Partner Edition play kit" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
     <div style="position:absolute;inset:0;background:linear-gradient(rgba(18,10,12,.18) 0%,rgba(18,10,12,.06) 38%,rgba(18,10,12,.62) 80%,rgba(18,10,12,.84) 100%)"></div>
     <div style="position:absolute;left:0;right:0;bottom:0;padding:0 32px 58px">
       <div style="max-width:1400px;margin:0 auto;color:#fff">
@@ -1133,6 +1134,9 @@ class Component extends DCLogic {
     this.hudNum = document.querySelector('[data-hudnum]');
     this.hudLabel = document.querySelector('[data-hudlabel]');
     this.bootEl = document.querySelector('[data-boot]');
+    this.hudBox = document.querySelector('[data-hud]');
+    this.chapNav = document.querySelector('[data-chapnav]');
+    this.footer = document.querySelector('footer');
     this.bootBar = document.querySelector('[data-bootbar]');
     this.bootPct = document.querySelector('[data-bootpct]');
     const pops = document.querySelectorAll('[data-pop]');
@@ -1331,6 +1335,24 @@ class Component extends DCLogic {
     this.step();
   };
 
+  // The fixed HUD and chapter rail float above everything at z-40. The footer is the one
+  // block they must not cover, so they retire as it comes into view.
+  fadeOverlays() {
+    const f = this.footer || document.querySelector('footer');
+    if (!f) return;
+    const over = f.getBoundingClientRect().top < (window.innerHeight || 0) - 24;
+    if (over === this._overlaysHidden) return;
+    this._overlaysHidden = over;
+    if (this.hudBox) {
+      this.hudBox.style.opacity = over ? '0' : '1';
+      this.hudBox.style.transform = over ? 'translateY(14px)' : 'none';
+    }
+    if (this.chapNav) {
+      this.chapNav.style.opacity = over ? '0' : '1';
+      this.chapNav.style.pointerEvents = over ? 'none' : 'auto';
+    }
+  }
+
   // One place that maps scroll → film time. Driven by rAF for smoothness, by the scroll event
   // for responsiveness, and by a slow timer so the lerp still settles if rAF is throttled.
   step() {
@@ -1348,6 +1370,7 @@ class Component extends DCLogic {
     this.smooth += (raw - this.smooth) * (this.reduced ? 1 : 1 - Math.exp(-dt / TAU));
     if (Math.abs(raw - this.smooth) < 0.0004) this.smooth = raw;
 
+    this.fadeOverlays();
     if (this.bar) this.bar.style.transform = 'scaleX(' + raw.toFixed(4) + ')';
     this.draw();
   }
