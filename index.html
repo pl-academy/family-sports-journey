@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>window.__resources=Object.assign({},window.__resources,{"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"react-dom.production.min.js"});</script>
+<script>window.__resources=Object.assign({},window.__resources,{"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"vendor/react-dom.production.min.js"});</script>
 <script src="react.production.min.js"></script>
 <script src="react-dom.production.min.js"></script>
-<script src="./support.js"></script>
+<script src="support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Bodoni+Moda:ital,wght@1,500;1,600;1,700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 <style>
-  body { margin:0; background:#241416; -webkit-font-smoothing:antialiased; }
+  body { margin:0; overflow-x:hidden; background:#241416; -webkit-font-smoothing:antialiased; }
   * { box-sizing:border-box; }
   a { color:#ED2E7E; text-decoration:none; }
   a:hover { color:#3A1714; }
@@ -24,6 +24,54 @@
   input { font-family:Archivo, sans-serif; }
   ::-webkit-scrollbar { height:8px; width:8px; }
   ::-webkit-scrollbar-thumb { background:rgba(58,23,20,.18); border-radius:8px; }
+  @media (max-width: 900px) {
+    /* 3D projection is what makes blocks cross into their neighbours on a narrow screen:
+       z-depth and rotation push a card outside its own box. Flatten the stage on mobile. */
+    section[data-screen-label] { perspective: none !important; }
+    [data-pop] { transform-style: flat !important; }
+
+    /* the chapter rail moves off the left edge, so content reclaims the gutter */
+    section[data-screen-label], header, footer {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+    section[data-screen-label] { padding-top: 34px !important; padding-bottom: 54px !important; }
+
+    /* single column: a sticky card has no travel and only collides with what follows */
+    [data-depth="front"] { position: static !important; max-width: 100% !important; }
+    [data-pop] { gap: 22px !important; }
+
+    nav[aria-label="Journey chapters"] {
+      left: 50% !important; right: auto !important;
+      top: auto !important;
+      bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+      transform: translateX(-50%) !important;
+      flex-direction: row !important;
+      padding: 6px 8px !important;
+    }
+    [data-hud] {
+      top: calc(10px + env(safe-area-inset-top, 0px)) !important;
+      bottom: auto !important;
+      right: 10px !important;
+      padding: 7px 11px !important;
+    }
+
+    /* the fixed chrome floats over the page, so the flow has to end clear of it —
+       otherwise the bottom pill sits on top of the last block */
+    footer { padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)) !important; }
+    header { padding-top: calc(62px + env(safe-area-inset-top, 0px)) !important; }
+
+    /* one column, and nothing may escape its own section box */
+    [data-pop] { grid-template-columns: 1fr !important; }
+    section[data-screen-label] { overflow-x: clip; }
+    [data-depth="back"] { max-width: 100% !important; }
+    [data-card] { max-width: calc(100vw - 36px) !important; }
+  }
+  @media (max-width: 560px) {
+    section[data-screen-label], header, footer {
+      padding-left: 14px !important; padding-right: 14px !important;
+    }
+  }
   @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.45 } }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -50,7 +98,7 @@
     <a href="#s8" title="08 Share and return" style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 9.5px/1 Archivo,sans-serif;color:rgba(237,230,219,.72)" style-hover="background:#ED2E7E;color:#fff">08</a>
   </nav>
 
-  <div style="position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:40;display:flex;align-items:center;gap:11px;padding:10px 15px;border-radius:999px;background:rgba(18,10,12,.74);pointer-events:none">
+  <div data-hud="1" style="position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:40;display:flex;align-items:center;gap:11px;padding:10px 15px;border-radius:999px;background:rgba(18,10,12,.74);pointer-events:none">
     <span data-hudnum="1" style="font:900 15px/1 Archivo,sans-serif;letter-spacing:-.02em;color:#F6A8C8">01</span>
     <span style="width:1px;height:12px;background:rgba(255,255,255,.32);display:block"></span>
     <span data-hudlabel="1" style="font:800 9px/1 Archivo,sans-serif;letter-spacing:.22em;color:#fff">DISCOVER</span>
@@ -58,20 +106,21 @@
 
   <div data-boot="1" style="position:fixed;inset:0;z-index:60;background:#120A0C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
     <div style="font:800 10px/1 Archivo,sans-serif;letter-spacing:.34em;color:#F6A8C8">SEPTEMBER FAMILY SPORTS</div>
-    <div style="font:900 clamp(28px,4.4vw,58px)/0.94 Archivo,sans-serif;letter-spacing:-.04em;color:#fff;text-align:center;max-width:22ch">One scroll, <em style="font:italic 500 1em/0.94 'Bodoni Moda',serif">one film.</em></div>
+    <div style="font:900 clamp(26px,4vw,54px)/0.96 Archivo,sans-serif;letter-spacing:-.04em;color:#fff;text-align:center;max-width:20ch">From 1 × KV to <em style="font:italic 500 1em/0.96 'Bodoni Moda',serif">a journey mock up.</em></div>
+    <div style="font:500 clamp(13px,1.3vw,16px)/1.5 Archivo,sans-serif;color:rgba(255,255,255,.66);text-align:center;max-width:44ch;padding:0 20px">Seven campaign pages, extended into eight live touchpoints you can tap through — a working prototype, produced end to end.</div>
     <div style="width:min(46vw,300px);height:2px;background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden"><span data-bootbar="1" style="display:block;height:100%;width:0%;background:#ED2E7E;transition:width .3s linear"></span></div>
-    <div data-bootpct="1" style="font:800 9px/1 Archivo,sans-serif;letter-spacing:.28em;color:rgba(255,255,255,.45)">THREADING THE FILM · 0%</div>
+    <div data-bootpct="1" style="font:800 9px/1 Archivo,sans-serif;letter-spacing:.28em;color:rgba(255,255,255,.45)">ASSEMBLING THE PROTOTYPE · 0%</div>
   </div>
 
 
   <header style="position:relative;z-index:1;padding:56px 32px 40px;padding-left:clamp(58px,7vw,76px);background:rgba(237,230,219,.70);backdrop-filter:blur(18px) saturate(1.08);-webkit-backdrop-filter:blur(18px) saturate(1.08)">
     <div style="max-width:1400px;margin:0 auto">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(58,23,20,.16);padding-bottom:18px">
-      <div style="display:flex;align-items:center;gap:12px"><img src="logo.png" alt="PressLogic" style="height:20px;width:auto;display:block" /></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(58,23,20,.16);padding-bottom:18px">
+      <img src="PL.svg" alt="PressLogic" style="height:17px;width:auto;display:block" />
       <div style="font:800 10.5px/1 Archivo,sans-serif;letter-spacing:.2em;color:rgba(58,23,20,.55)">SEPTEMBER · HONG KONG · UI &amp; EXPERIENCE MOCKUPS</div>
     </div>
     <h1 style="margin:36px 0 0;font:900 clamp(44px,7vw,104px)/0.9 Archivo,sans-serif;letter-spacing:-.035em;max-width:16ch">Family Sports, <em style="font:italic 600 1em/0.9 'Bodoni Moda',serif;letter-spacing:-.01em">as the family sees it.</em></h1>
-    <p style="margin:26px 0 0;max-width:56ch;font:500 17px/1.5 Archivo,sans-serif;color:rgba(58,23,20,.78);text-wrap:pretty">Eight live touchpoints, in the order a Hong Kong parent would meet them. Every screen below is the real thing a customer taps, scans, books or shares — mobile web only, no app download. 由 feed 到 家庭運動日。</p>
+    <p style="margin:26px 0 0;max-width:56ch;font:500 17px/1.5 Archivo,sans-serif;color:rgba(58,23,20,.78);text-wrap:pretty">A campaign journey experience mock up — from feed, to event, to retention. Eight live touchpoints, each one the real thing a customer taps, scans, books, shares or reposts. Campaign demo: a September family workshop, with the product crossover built in.</p>
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:34px">
       <a href="#s1" style="display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(58,23,20,.2);border-radius:999px;font:800 11px/1 Archivo,sans-serif;letter-spacing:.1em;color:#3A1714" style-hover="background:#3A1714;color:#EDE6DB;border-color:#3A1714"><span style="color:#ED2E7E">01</span>DISCOVER</a>
       <a href="#s2" style="display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(58,23,20,.2);border-radius:999px;font:800 11px/1 Archivo,sans-serif;letter-spacing:.1em;color:#3A1714" style-hover="background:#3A1714;color:#EDE6DB;border-color:#3A1714"><span style="color:#ED2E7E">02</span>BUILD HYPE</a>
@@ -110,7 +159,7 @@
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span>CARRIES FORWARD → MOBILE NUMBER + A FOLLOW</div>
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:300px">
           <div style="position:relative;border-radius:44px;background:#211311;padding:10px;box-shadow:0 24px 50px rgba(58,23,20,.22)">
             <div style="border-radius:35px;overflow:hidden;background:#fff;height:600px;display:flex;flex-direction:column">
@@ -204,7 +253,7 @@
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span>CARRIES FORWARD → A SAVED REEL + A LINK TAP</div>
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:300px">
           <div style="position:relative;border-radius:44px;background:#211311;padding:10px;box-shadow:0 24px 50px rgba(58,23,20,.22)">
             <div style="border-radius:35px;overflow:hidden;background:#000;height:600px;position:relative;display:flex;flex-direction:column">
@@ -311,7 +360,7 @@
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span>CARRIES FORWARD → FAMILY PLAY PASS (QR)</div>
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:230px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">PRINTED TAKE-HOME · A5</div>
           <div style="border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 14px 30px rgba(58,23,20,.14);transform:rotate(-1.5deg)">
@@ -439,7 +488,7 @@
         <img src="ls-booth.jpg" alt="Mall activation booth" style="width:100%;height:150px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:190px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">WAYFINDING TOTEM · L2</div>
           <div style="border-radius:14px;background:#ED2E7E;color:#fff;padding:18px 16px;height:420px;display:flex;flex-direction:column;box-shadow:0 14px 30px rgba(58,23,20,.16)">
@@ -570,7 +619,7 @@
         <img src="ls-kit.jpg" alt="Partner Edition store" style="width:100%;height:200px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:200px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">SHELF TAG · NFC + QR</div>
           <div style="border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 14px 30px rgba(58,23,20,.14)">
@@ -683,7 +732,7 @@
         <img src="ls-tag.jpg" alt="Personalised bag tags" style="width:100%;height:170px;object-fit:cover;border-radius:14px;display:block;margin-top:24px" />
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:390px;max-width:100%">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">WORKSHOP STATION SCREEN · TABLE TABLET</div>
           <div style="border-radius:20px;background:#fff;padding:18px;box-shadow:0 18px 40px rgba(58,23,20,.16);border:1px solid rgba(58,23,20,.1)">
@@ -797,7 +846,7 @@
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(58,23,20,.55)"><span style="width:30px;height:1px;background:#ED2E7E;flex:0 0 auto"></span>CARRIES FORWARD → A REEL, A REPORT, A FULL PASSPORT</div>
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:230px">
           <div style="display:inline-block;background:rgba(24,11,13,.93);border-radius:7px;padding:6px 9px;font:800 9.5px/1 Archivo,sans-serif;letter-spacing:.16em;color:#EDE6DB;margin-bottom:9px">PHOTO WALL SCREEN · ATRIUM</div>
           <div style="border-radius:14px;overflow:hidden;background:#3A1714;box-shadow:0 14px 30px rgba(58,23,20,.18)">
@@ -913,7 +962,7 @@
         <div style="margin-top:30px;display:flex;gap:10px;align-items:center;font:800 10px/1.3 Archivo,sans-serif;letter-spacing:.14em;color:rgba(237,230,219,.6)"><span style="width:30px;height:1px;background:#F6A8C8;flex:0 0 auto"></span>LOOPS BACK → <a href="#s1" style="color:#F6A8C8">STAGE 01 · DISCOVER</a></div>
       </div>
 
-      <div data-depth="back" style="display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
+      <div data-depth="back" style="min-width:0;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 16px;align-items:flex-start">
         <div data-card="1" style="flex:0 0 auto;width:300px">
           <div style="position:relative;border-radius:44px;background:#100a09;padding:10px;box-shadow:0 24px 50px rgba(0,0,0,.4)">
             <div style="border-radius:35px;overflow:hidden;background:#000;height:600px;display:flex;flex-direction:column;position:relative">
@@ -1001,8 +1050,8 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;childName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;KAI&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Personalisation&quot;},&quot;showAnnotations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Presentation&quot;}}">
-const FRAME_COUNT = 55;
-const FRAME_SRC = i => 'seq/f' + String(i * 2).padStart(3, '0') + '.jpg';
+const FRAME_COUNT = 110;
+const FRAME_SRC = i => 'seq/f' + String(i).padStart(3, '0') + '.jpg';
 
 class Component extends DCLogic {
   state = {
@@ -1142,6 +1191,7 @@ class Component extends DCLogic {
     try {
       g.registerPlugin(ST);
       const vh = window.innerHeight || 800;
+      const narrow = (window.innerWidth || 1200) <= 900;
       const total = Math.max(1, document.documentElement.scrollHeight - vh);
       const D = 1000;
       const tl = g.timeline({
@@ -1159,8 +1209,12 @@ class Component extends DCLogic {
         const inAt = Math.max(0, ((top - vh * 1.12) / total) * D);
         const span = Math.max(18, (vh * 0.42 / total) * D);
         tl.fromTo(el,
-          { opacity: 0.2, y: 64, rotationX: 9, z: -140, immediateRender: false },
-          { opacity: 1, y: 0, rotationX: 0, z: 0, duration: span, immediateRender: false },
+          narrow
+            ? { opacity: 0.25, y: 30, immediateRender: false }
+            : { opacity: 0.2, y: 64, rotationX: 9, z: -140, immediateRender: false },
+          narrow
+            ? { opacity: 1, y: 0, duration: span, immediateRender: false }
+            : { opacity: 1, y: 0, rotationX: 0, z: 0, duration: span, immediateRender: false },
           inAt);
       });
 
@@ -1252,7 +1306,7 @@ class Component extends DCLogic {
     const target = Math.max(ready, Math.min(0.97, elapsed / 4000));
     this.bootP += (target - this.bootP) * 0.2;
     if (this.bootBar) this.bootBar.style.width = (this.bootP * 100).toFixed(1) + '%';
-    if (this.bootPct) this.bootPct.textContent = 'THREADING THE FILM · ' + Math.round(this.bootP * 100) + '%';
+    if (this.bootPct) this.bootPct.textContent = 'ASSEMBLING THE PROTOTYPE · ' + Math.round(this.bootP * 100) + '%';
     if ((ready >= 1 && this.bootP > 0.88) || elapsed > 5200) this.openCurtain();
   }
 
@@ -1414,5 +1468,13 @@ class Component extends DCLogic {
   }
 }
 </script>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#241416"/>
+  <rect x="120" y="120" width="160" height="160" rx="18" fill="#ED2E7E"/>
+  <path d="M182 172v56l46-28z" fill="#fff"/>
+  <rect x="120" y="296" width="160" height="10" rx="5" fill="#F6A8C8"/>
+</svg>
+</template>
 </body>
 </html>
